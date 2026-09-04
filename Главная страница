@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="autor" content="Павел Шакалин"
+    <meta name="descreption" content="Главная страница">
+    <title>Shakalin.com-Главная страница</title>
+  </head>
+  <body>
+      <h1>Привет!</h1>
+  </body>
+</html>
