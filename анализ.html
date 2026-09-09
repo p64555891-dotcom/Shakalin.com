@@ -55,10 +55,15 @@ border-radius: 20px;
 </span>
 </p>
 <!-- Шахматная доска -->
-    <div id="board1" style="width: 400px; margin: 40px 0 0 20px;"></div>
+    <div id="board1"
+     style="width: 400px;
+    height: 400px;
+    margin: 40px 0 0 20px;
+    display: inline-block;">
+    </div>
 
    <!-- Кнопка сброса доски -->
-    <button onclick="board1.position('start')" style="
+    <button onclick="resetBoard()" style="
         background-color: black;
         color: white;
         border: none;
@@ -68,13 +73,33 @@ border-radius: 20px;
         border-radius: 20px;
         margin-top: 20px;
     ">Сбросить доску</button>
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Подключаем скрипт доски -->
     <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
     <!-- Запускаем доску -->
     <script>
-        var board1 = Chessboard('board1', {
-            draggable: true,
-            position: 'start'
+        var board1; // Объявляем переменную ЗДЕСЬ, чтобы все её видели
+
+        // Функция, которая создаёт доску
+        function initBoard() {
+            board1 = Chessboard('board1', {
+                draggable: true,
+                position: 'start'
+            });
+        }
+
+        // Функция для кнопки "Сбросить"
+        function resetBoard() {
+            if (board1) {
+                board1.position('start');
+            } else {
+                console.error('Доска еще не загружена!');
+            }
+        }
+
+        // Запускаем создание доски, когда страница полностью готова
+        $(document).ready(function() {
+            initBoard();
         });
     </script>
 
